@@ -121,9 +121,30 @@
       </main>
     </div>
 </div>
- 
-  
-  
 
+<div class="mt-6 pt-10 grid gap-16 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
 
+    {{-- @unless (count($listings) == 0) --}}
+
+    @foreach ($listings as $listing )
+    
+    <div>
+        <p class="text-sm text-gray-500">
+        <time datetime="2020-03-16">{{$listing->company}}</time>
+        </p>
+        <a href="{{$listing->company}}" class="mt-2 block">
+            <p class="text-xl font-semibold text-gray-900">{{$listing->company}}</p>
+            <p class="mt-3 text-base text-gray-500">{{$listing->company}}</p>
+        </a>
+        <div class="mt-3">
+            <a href="/listings/{{$listing->company}}" class="text-base font-semibold text-indigo-600 hover:text-indigo-500"> Read full story </a>
+        </div>
+    </div>
+        
+    @endforeach
+        
+    {{-- @endunless --}}
+   
+</div>
+  
 @endsection
